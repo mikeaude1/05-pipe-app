@@ -1,0 +1,48 @@
+<p-panel header='Pipes Basicos' class="p-1">
+  <p>Pipes incluidos en Angula r - Usualmente en el Common Module</p>
+</p-panel>
+
+<div class="grid">
+  <div class="col-12 md:col-4">
+    <p-card header="Uppercase">
+      {{nameLower|uppercase}}
+    </p-card>
+  </div>
+  <div class="col-12 md:col-4">
+    <p-card header="Lowercase">
+      {{nameUpper|lowercase}}
+    </p-card>
+  </div>
+  <div class="col-12 md:col-4">
+    <p-card header="Titlecase">
+      {{fullName|titlecase}}
+    </p-card>
+  </div>
+  <div class="col-12 md:col-12">
+    <p-card header="Pipe-Date">
+      <p-table [value]="properties" styleClass="p-datatable-gridlines"  [tableStyle]="{ 'min-width': '50rem' }">
+        <ng-template pTemplate="header">
+        <tr>
+          <th>fecha|date:</th>
+          <th>fecha|date:'dd/MMMM/yyyy'|uppercase:</th>
+          <th>fecha|date:'short'</th>
+          <th>fecha|date:'long'</th>
+          <th>fecha|date:'long':'':'en' </th>
+          <th>fecha|date:'long':'':'fr-CA'</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-properties>
+        <tr clas="row-accessories">
+          <td>{{ properties.fecha}}{{fecha|date}}</td>
+          <td>{{ properties.fecha}}{{fecha|date:'dd/MMMM/yyyy'|uppercase}}</td>
+          <td>{{properties.fecha}} {{fecha|date:'short'}}</td>
+          <td>{{properties.fecha}}{{fecha|date:'long'}}</td>
+          <td>{{properties.fecha}}{{fecha|date:'long':'':'en'}}</td>
+          <td>{{properties.fecha }}{{fecha|date:'long':'':'fr-CA' }}
+          </td>
+        </tr>
+      </ng-template>
+      </p-table>
+    </p-card>
+  </div>
+</div>
